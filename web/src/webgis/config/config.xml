@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    	
+    	<!--  <urlBase>http://geopx.mine.nu:8888/RotasBR_v2/rest/json/</urlBase> -->
+    	<urlBase>http://localhost:8080/RotasBR_v2/rest/json/</urlBase>
+     
+    <numeroLicencas>60</numeroLicencas>
+</configuration>

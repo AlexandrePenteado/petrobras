@@ -1,0 +1,66 @@
+<div id="emailArea" class="full-height">
+	<div style="width:800px; position: relative; top: 0%; transform: translateY(50%); margin:0 auto;">
+		<div class="form-group">
+			<div class="row">
+				<div class="col-md-4">
+					<div style="margin-bottom: 25px" class="input-group">
+						<span class="input-group-addon"> 
+						<i class="glyphicon glyphicon-user"></i>
+						</span>
+						<input width="200" id="login" type="text" class="form-control" name="login" value="" placeholder="example@domain.com">
+					</div>
+				</div>
+				<div class="col-md-1"><p></p></div>
+				<div class="col-md-4">
+					<div style="margin-bottom: 25px" class="input-group">
+						<span class="input-group-addon"> 
+						<i class="glyphicon glyphicon-lock"></i>
+						</span>
+						<input width="200" id="login-password" type="password" class="form-control" name="password" placeholder="Senha">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<div class="col-md-2">
+					<label>Email</label>
+				</div>
+				<div class="col-md-7">
+					<input type="text" width="200" class= "control-label form-control" id="to" disable=true placeholder="TODOS" value=""/>
+				</div>
+				<div class="col-md-3">
+					<input type="checkbox" id="check-auto" class="check-inline" checked=true></input>
+					<label for="message" class="control-label">Automático</label>
+				</div>
+			</div>
+		</div>	
+		<div class="form-group">
+			<div class="row">
+				<div class="col-md-2">
+					<label class="control-label">Assunto</label>
+				</div>
+				<div class="col-md-7">
+					<input type="text" width="200" class="form-control" id="assunto" name="assunto" value="">
+				</div>
+			</div>		
+		</div>		
+		<div class="form-group">
+			<div class="row">
+				<div class="col-md-2">
+					<br /> <label for="message" class="control-label">Mensagem</label>
+				</div>
+				<div class="col-md-7">
+					<textarea class="form-control" rows="4" name="message" id="mensagem"></textarea>
+				</div>
+			</div>		
+		</div>
+		
+		<div class="row">
+			<div class="col-md-12">
+				<br />
+				<button data-bind="click: btnEnviarClick" type="button" id="btnEnviar" class="btn btn-success">Enviar</button>
+			</div>
+		</div>
+	</div>
+</div>

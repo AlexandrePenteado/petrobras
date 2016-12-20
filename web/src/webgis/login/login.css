@@ -1,0 +1,79 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+}
+
+html {
+    height: 100%
+}
+
+body {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 115, 108, 1);
+    background: -moz-linear-gradient(45deg, rgb(207, 233, 222) -90%, rgba(0, 139, 79, 0.9) 100%);
+    background: -webkit-linear-gradient(45deg, rgb(207, 233, 222) -90%, rgba(0, 139, 79, 0.9) 100%);
+    background: -o-linear-gradient(45deg, rgb(207, 233, 222) -90%, rgba(0, 139, 79, 0.9) 100%);
+    background: -ms-linear-gradient(45deg, rgb(207, 233, 222) -90%, rgba(0, 139, 79, 0.9) 100%);
+    background: linear-gradient(45deg, rgb(207, 233, 222) -90%, rgba(0, 139, 79, 0.9) 100%);
+}
+
+.login-form {
+    margin-top: 60px;
+}
+
+form[role=login] {
+    color: #5d5d5d;
+    background: #FFFFFF;
+    padding: 26px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+form[role=login] img {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 35px;
+}
+form[role=login] input,
+form[role=login] button {
+    font-size: 18px;
+    margin: 16px 0;
+}
+form[role=login] > div {
+    text-align: center;
+}
+
+.form-links {
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 50px;
+}
+.form-links a {
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #008B4F;
+    border-color: #008B4F;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background-color: #006B3D;
+    border-color: #006B3D;
+}
+
+.btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary, .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus, .btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus, .btn-primary.disabled:active, .btn-primary[disabled]:active, fieldset[disabled] .btn-primary:active, .btn-primary.disabled.active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary.active {
+    background-color: #008B4F;
+    border-color: #008B4F;
+}

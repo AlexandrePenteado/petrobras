@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context auth="Container" path="/br">
+
+ 	<Resource driverClassName="oracle.jdbc.OracleDriver" maxActive="100" maxIdle="20" 
+  	name="jdbc" password="petr0braS" type="javax.sql.DataSource"
+  	url="jdbc:oracle:thin:@192.168.0.160:1521/ORCL" username="petrobras"/>
+    
+  <Manager className="org.apache.catalina.session.StandardManager" pathname=""/>
+</Context>

@@ -1,0 +1,27 @@
+<div id="uploadArea" class="full-height">
+    <div class="container full-height">
+        <form class="margin-top-50">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Tipo de dado:</label>
+                <label class="radio-inline">
+                    <input type="radio" name="radioDataType" id="inlineRadio1" value="Point" data-bind="checked: selectedDataType"> Ponto
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="radioDataType" id="inlineRadio2" value="LineString" data-bind="checked: selectedDataType"> Linha
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="file" id="inputFile" style="display: none" accept=".zip"
+                       data-bind="event: { change: function() { inputFileChanged($element.files[0]) } }">
+
+                <button class="btn  btn-primary span3" type="button" data-bind="click: inputFileClick">
+                    Carregar arquivo 
+                    <br>
+                    (ou arraste e solte em qualquer lugar desta página) com extens&atilde;o ".zip"
+                    <br>
+                </button>
+            </div>
+            <div id="progressBar" data-bind="progress: percentComplete"></div>
+        </form>
+    </div>
+</div>

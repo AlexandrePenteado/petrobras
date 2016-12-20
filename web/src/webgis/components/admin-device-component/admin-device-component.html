@@ -1,0 +1,142 @@
+<div class="container margin-top-50">
+    <div data-bind="visible: listDevicesVisible">
+        <div class="row" style="margin-bottom: 25px">
+            <a class="btn btn-primary pull-right" href="#" role="button" data-bind="click: newDevice">Adicionar Dispositivo</a>
+        </div>
+
+        <div class="tableContainer row">
+            <table id="example" class="table table-striped table-bordered" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Chave Petrobras</th>
+                        <th>Telefone</th>
+                        <th>Licença</th>
+                        <th>IMEI</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody data-bind='foreach: devices'>
+                    <tr>
+                        <td><span data-bind="text: fullName"></span></td>
+                        <td><span data-bind="text: petrobrasKey"></span></td>
+                        <td><span data-bind="text: phoneNumber"></span></td>
+                        <td><span data-bind="text: license"></span></td>
+                        <td><span data-bind="text: imei"></span></td>
+                        <td><span data-bind="text: isActiveLabel"></span></td>
+                        <td style="text-align: center;">
+                            <a class="cursorPointer marginRight5" title="Editar" data-bind="click: function() { $parent.editDevice($data) };">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                            </a>  
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div data-bind="visible: !listDevicesVisible()">
+        <div class="row" style="margin-bottom: 25px">
+            <a class="btn btn-primary pull-left" href="#" role="button" data-bind="click: backToListView">
+                <span aria-hidden="true">&larr;</span> Voltar
+            </a>
+        </div>
+
+        <div class="row">
+            <form class="form-horizontal">
+                <!-- ko with: selectedDevice -->
+                <div class="form-group" data-bind="css: { 'has-error has-feedback': $parent.isPetrobrasKeyEmpty }">
+                    <label class="col-sm-2 control-label">Chave Petrobras:</label>
+                    <div class="col-sm-8 col-md-4">
+                        <input type="text" class="form-control" id="inputName" placeholder="Chave Petrobras" 
+                               aria-describedby="inputError2Status" data-bind="value: petrobrasKey" maxlength="20">
+
+                        <!-- ko if: $parent.isPetrobrasKeyEmpty -->
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                        <span id="inputError2Status" class="sr-only">(error)</span>
+                        <!-- /ko -->
+                    </div>
+                </div>
+                <div class="form-group" data-bind="css: { 'has-error has-feedback': $parent.isFullNameEmpty }">
+                    <label for="inputName" class="col-sm-2 control-label">Nome Completo:</label>
+                    <div class="col-sm-8 col-md-4">
+                        <input type="text" class="form-control" id="inputName" placeholder="Nome completo do usuário" aria-describedby="inputError2Status"
+                               data-bind="value: fullName" maxlength="50">
+
+                        <!-- ko if: $parent.isFullNameEmpty -->
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                        <span id="inputError2Status" class="sr-only">(error)</span>
+                        <!-- /ko -->
+                    </div>
+                </div>
+                <div class="form-group" data-bind="css: { 'has-error has-feedback': $parent.isPhoneNumberEmpty }">
+                    <label for="inputServiceUrl" class="col-sm-2 control-label">Telefone:</label>
+                    <div class="col-sm-8 col-md-4">
+                        <input type="text" class="form-control" id="inputServiceUrl" placeholder="Telefone celular"
+                               data-bind="masked: phoneNumber, mask: '99999999999'" maxlength="11">
+
+                        <!-- ko if: $parent.isPhoneNumberEmpty -->
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                        <span id="inputError2Status" class="sr-only">(error)</span>
+                        <!-- /ko -->
+                    </div>
+                </div>
+                <div class="form-group" data-bind="css: { 'has-error has-feedback': $parent.isLicenseEmpty }">
+                    <label for="inputName" class="col-sm-2 control-label">Licença:</label>
+                    <div class="col-sm-8 col-md-4">
+                        <input type="text" class="form-control" id="inputName" placeholder="Licença" aria-describedby="inputError2Status"
+                               data-bind="value: license" maxlength="20">
+
+                        <!-- ko if: $parent.isLicenseEmpty -->
+                        <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                        <span id="inputError2Status" class="sr-only">(error)</span>
+                        <!-- /ko -->
+                    </div>
+                </div>
+                <div class="form-group" data-bind="css: { 'has-error has-feedback': $parent.isImeiEmpty }">
+                    <label for="inputTableGeo" class="col-sm-2 control-label">IMEI:</label>
+                    <div class="col-sm-8 col-md-4">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="inputTableGeo" placeholder="IMEI do dispositivo"
+                                   data-bind="value: imei, enable: id() === 0" maxlength="20">
+                            
+                            <div class="input-group-addon" data-toggle="tooltip" data-placement="right" 
+                                 title="IMEI (International Mobile Equipament Identification) do aparelho - Para acessar o número do aparelho tecle *#06#.">
+                                <span class="glyphicon glyphicon-question-sign"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" data-bind="css: { 'has-error has-feedback': $parent.isImeiEmpty }">
+                    <label for="inputTableGeo" class="col-sm-2 control-label">Status:</label>
+                    <div class="col-sm-8 col-md-4">
+                        <label class="radio-inline">
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="true"
+                                   data-bind="checked: isActive, checkedValue: true"> Ativo
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="false"
+                                   data-bind="checked: isActive, checkedValue: false"> Inativo
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" class="btn btn-default" 
+                                data-bind="click: function() { $parent.clearForm() };">Limpar</button>
+                        <!-- ko if: id() === 0 -->
+                        <button type="button" class="btn btn-primary" 
+                                data-bind="click: function() { $parent.addDevice($data) };">Adicionar</button>
+                        <!-- /ko -->
+                        <!-- ko if: id() > 0 -->
+                        <button type="button" class="btn btn-primary" 
+                                data-bind="click: function() { $parent.updateDevice($data) };">Atualizar</button>
+                        <!-- /ko -->
+                    </div>
+                </div>
+                <!-- /ko -->
+            </form>
+        </div>
+    </div>
+</div>

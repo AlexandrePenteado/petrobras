@@ -1,0 +1,18 @@
+<div>
+    <menu-component></menu-component>
+</div>
+<div data-bind="visible: adminDeviceVisible">
+    <admin-device-component></admin-device-component>
+</div>
+<div data-bind="visible: licenseControl">
+    <licensing-component></licensing-component>
+</div>
+<div data-bind="visible: historicControl">
+    <historic-component></historic-component>
+</div>
+<div data-bind="visible: uploadControl" class="full-height">
+    <upload-component></upload-component>
+</div>
+<div data-bind="visible: emailControl" class="full-height">
+    <email-component></email-component>
+</div>
